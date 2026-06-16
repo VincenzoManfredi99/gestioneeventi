@@ -1,8 +1,6 @@
 package vincenzomanfredi.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -15,6 +13,35 @@ public class Evento {
     private String titolo;
     private LocalDate dataEvento;
     private String descrizione;
+
+    @Column(name = "tipo_evento")
+    @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
+
+    @Column(name = "numero_massimo_partecipanti")
     private int numMassimoPartecipanti;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public LocalDate getData() {
+        return dataEvento;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public TipoEvento getTipo() {
+        return tipoEvento;
+    }
+
+    public int getNumMassimoPartecipanti() {
+        return numMassimoPartecipanti;
+    }
 }
